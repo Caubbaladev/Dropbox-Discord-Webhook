@@ -128,7 +128,6 @@ def webhook(*args):
 @app.route('/webhook', methods=['GET'])
 
 def challenge(*args):
-    '''Respond to the webhook challenge (GET request) by echoing back the challenge parameter.'''
 
     resp = Response(request.args.get('challenge'))
     resp.headers['Content-Type'] = 'text/plain'
