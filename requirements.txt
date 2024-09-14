@@ -1,0 +1,6 @@
+functions-framework==3.*
+dropbox
+docx2txt
+Flask==2.2.5
+discord_webhook
+pandas
