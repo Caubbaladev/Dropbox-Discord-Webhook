@@ -53,11 +53,18 @@ Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Sui
 
 ---
 
-## Configuration du code
+## Configuration du code (TRES IMPORTANT !)
 
 1. **Ajout des clés au code** :
    - Assurez-vous que votre `APP_KEY` et `APP_SECRET` sont correctement référencés dans le code source.
    - Ces informations se trouvent dans le portail Developer Dropbox.
+
+2. **Champs à personnaliser dans le code (fichier main.py)** :
+   - Remplacez APP_KEY, APP_SECRET, REFRESH_TOKEN, et DISCORD_WEBHOOK_URL par vos propres valeurs.
+   - Définissez également MAIN_FILE = 'MPSI --ANNEE--', par exemple, MAIN_FILE = 'MPSI 23-24' en utilisant le nom du fichier spécifique à votre année dans le dossier Dropbox de physique.
+  
+3. **Initialisation des fichiers docx** :
+   - Les fichiers SAMPLE_FILE.docx et UPDATED_FILE.docx doivent être initialisés en tant que copies exactes du fichier Quoi de neuf.docx de la Dropbox de votre classe de MPSI. Ces fichiers doivent contenir exactement le même contenu que l'original.
 
 ---
 
