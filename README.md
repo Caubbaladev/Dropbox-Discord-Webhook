@@ -60,7 +60,7 @@ Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Sui
    - Ces informations se trouvent dans le portail Developer Dropbox.
 
 2. **Champs à personnaliser dans le code (fichier main.py)** :
-   - Remplacez APP_KEY, APP_SECRET, REFRESH_TOKEN, et DISCORD_WEBHOOK_URL par vos propres valeurs.
+   - Remplacez APP_KEY, APP_SECRET, REFRESH_TOKEN, et DISCORD_WEBHOOK_URL par vos propres valeurs. L'URL Webhook Discord s'obtient en créant une intégration Webhook dans un channel Discord de votre groupe.
    - Définissez également MAIN_FILE = 'MPSI --ANNEE--', par exemple, MAIN_FILE = 'MPSI 23-24' en utilisant le nom du fichier spécifique à votre année dans le dossier Dropbox de physique.
   
 3. **Initialisation des fichiers docx** :
