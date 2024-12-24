@@ -1,5 +1,5 @@
 
-# Dropbox Integration Guide
+# Intégration Dropbox-Discord Webhook
 
 Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Suivez les instructions ci-dessous pour configurer correctement l'application et l'environnement.
 
@@ -18,7 +18,7 @@ Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Sui
 
 ---
 
-## Obtention du REFRESH_TOKEN
+## Obtention du REFRESH\_TOKEN
 
 1. **Générer le code d'autorisation** :
 
@@ -28,13 +28,28 @@ Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Sui
      ```
    - Cliquez sur **Autoriser** et copiez le code d'autorisation affiché.
 
-2. **Obtenir le REFRESH_TOKEN** :
+2. **Obtenir le REFRESH\_TOKEN** :
 
    - Exécutez la commande suivante dans un terminal en remplaçant les valeurs :
      ```bash
-     curl https://api.dropbox.com/oauth2/token          -d code=AUTHORIZATIONCODEHERE          -d grant_type=authorization_code          -u APPKEYHERE:APPSECRETHERE
+     curl https://api.dropbox.com/oauth2/token \
+         -d code=AUTHORIZATIONCODEHERE \
+         -d grant_type=authorization_code \
+         -u APPKEYHERE:APPSECRETHERE
      ```
    - Le retour de cette commande contiendra votre `REFRESH_TOKEN`. Notez-le pour une utilisation future.
+   - Le format général de réponse pour le `REFRESH_TOKEN` est le suivant :
+     ```json
+     {
+       "access_token": "ACCESS_TOKEN_VALUE",
+       "token_type": "bearer",
+       "expires_in": 14400,
+       "refresh_token": "REFRESH_TOKEN_VALUE",
+       "scope": "account_info.read file_requests.read files.content.read files.content.write files.metadata.read files.metadata.write",
+       "uid": "USER_ID",
+       "account_id": "ACCOUNT_ID"
+     }
+     ```
 
 ---
 
@@ -55,6 +70,16 @@ Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Sui
      - Fichiers `.docx`
    - **Ne pas inclure de dossiers** directement dans l'archive.
 
+2. **Création d'une fonction dans Google Cloud Functions** :
+   - Avant d'importer l'archive `.zip`, créez une nouvelle fonction dans Google Cloud Functions.
+   - Choisissez l'environnement d'exécution approprié (par exemple, Python 3.10).
+
+3. **Téléchargement et déploiement** :
+   - Accédez à l'interface Google Cloud Functions.
+   - Dans la section "Code", sélectionnez "Importer un fichier ZIP".
+   - Téléchargez l'archive `.zip` contenant `main.py`, `requirements.txt`, et vos fichiers `.docx`.
+
+
 ---
 
 ## Notes supplémentaires
@@ -65,3 +90,4 @@ Ce projet utilise l'API de Dropbox pour interagir avec votre compte Dropbox. Sui
 ---
 
 Merci d'utiliser ce guide pour une configuration réussie de votre application Dropbox.
+
